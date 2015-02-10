@@ -121,12 +121,11 @@ The current projection matrix.  You can assign to this property to change it dyn
 #### `projection.mode`
 The interaction mode for the projection matrix.  Currently supported modes are:
 
-* `"perspective"`
-* `"ortho"`
-* `"matrix"`
+* `"perspective"` makes the camera behave as a perspective transformation, [based on this module](https://github.com/mikolalysenko/perspective-camera-controller)
+* `"ortho"` makes the camera behave as an orthogonal camera
+* `"matrix"` allows for direct matrix manipulation of the camera controller
 
 #### `projection.fovX`
-
 The horizontal field of view
 
 #### `projection.fovY`
@@ -155,22 +154,49 @@ The interaction mode for the view matrix.  Currently supported modes are:
 * `"fps"` a free look first person style camera
 * `"matrix"` unconstrained matrix based camera interactions
 
+#### `view.right`
+
+#### `view.up`
+
+#### `view.forward`
+
+#### `view.eye`
+
+#### `view.center`
+For `turntable` and `orbit` mode, this is the center of the camera coordinate system.
+
 #### `view.distance`
+The distance from the camera to the center
 
 #### `view.lookAt(eye, center, up)`
 
-#### `view.rotate(dx, dy)`
+#### `view.rotate(dx, dy, dz)`
+Apply an incremental rotation in screen coordinates.
+
+* `dx` is the amount to rotate horizontally/yaw (in radians)
+* `dy` is the amount to rotate vertically/pitch (in radians)
+* `dz` is the amount to roll (in radians)
 
 #### `view.zoom(dr)`
+Modify the distance to the camera by a factor of `dr`
+
+* `dr` is a scale factor which is `>0` determining the zoom amount
 
 #### `view.pan(dx, dy)`
 Pan the camera within the viewing plane
 
+* `dx` is the amount to pan horizontally (in world units)
+* `dy` is the amount to pan vertically (in world units)
+
 #### `view.translate(dx, dy, dz)`
 Translates the camera in absolute (world) coordinates
 
+* `dx,dy,dz` are the component-wise transformations in world units
+
 #### `view.move(dx, dy, dz)`
 Translates the camera in relative (camera) coordinates
+
+* `dx,dy,dz` are the component-wise component transformations in camera units
 
 ### Model matrix
 
