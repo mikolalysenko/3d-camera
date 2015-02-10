@@ -151,16 +151,14 @@ The interaction mode for the view matrix.  Currently supported modes are:
 
 * `"turntable"` a turntable based interaction, [based on this module](https://github.com/mikolalysenko/turntable-camera-controller).
 * `"orbit"` a freely orbiting trackball camera controller, [based on this module](https://github.com/mikolalysenko/orbit-camera-controller)
-* `"fps"` a free look first person style camera
+* `"fps"` a first person style camera (like Quake/Doom)
 * `"matrix"` unconstrained matrix based camera interactions
 
-#### `view.right`
-
 #### `view.up`
-
-#### `view.forward`
+The up vector for the view coordinate system in 
 
 #### `view.eye`
+The position of the camera in world coordinates (similar `camera.world.origin`)`
 
 #### `view.center`
 For `turntable` and `orbit` mode, this is the center of the camera coordinate system.
@@ -169,6 +167,11 @@ For `turntable` and `orbit` mode, this is the center of the camera coordinate sy
 The distance from the camera to the center
 
 #### `view.lookAt(eye, center, up)`
+Sets the orientation of the camera
+
+* `eye` is the eye vector of the viewer (or `view.eye` if unspecified)
+* `center` is the target of the camera (or `view.center` if unspecified)
+* `up` is the up vector for the camera (or `view.up` if unspecified)
 
 #### `view.rotate(dx, dy, dz)`
 Apply an incremental rotation in screen coordinates.
@@ -205,11 +208,12 @@ var model = camera.model
 ```
 
 #### `model.matrix`
+The model matrix of the camera
 
 #### `model.mode`
 Interaction mode for the model matrix.  Currently supported modes are:
 
-* `"matrix"`
+* `"matrix"` direct matrix based access for the model matrix
 
 # License
 (c) 2015 Mikola Lysenko. MIT License
