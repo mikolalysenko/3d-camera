@@ -109,7 +109,6 @@ camera.world.origin  // the origin of the camera in world coordinates
 The state of these transformations is computed from the constituent `model`, `view` and `projection` matrices of the camera, which are controlled by the following interfaces.
 
 ### Projection matrix
-
 The projection matrix determines the relation between camera coordinates and clip coordinates.
 
 ```javascript
@@ -117,11 +116,9 @@ var projection = camera.projection
 ```
 
 #### `projection.matrix`
-
 The current projection matrix.  You can assign to this property to change it dynamically.
 
 #### `projection.mode`
-
 The interaction mode for the projection matrix.  Currently supported modes are:
 
 * `"perspective"`
@@ -130,11 +127,16 @@ The interaction mode for the projection matrix.  Currently supported modes are:
 
 #### `projection.fovX`
 
+The horizontal field of view
+
 #### `projection.fovY`
+The vertical field of view
 
 #### `projection.zNear`
+The distance of the near clip plane
 
 #### `projection.zFar`
+The distance of the far clip plane
 
 ### View matrix
 
@@ -143,6 +145,7 @@ var view = camera.view
 ```
 
 #### `view.matrix`
+The contents of the view matrix.  Assigning to this value directly changes the view matrix.
 
 #### `view.mode`
 The interaction mode for the view matrix.  Currently supported modes are:
