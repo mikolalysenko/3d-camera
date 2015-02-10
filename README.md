@@ -1,6 +1,6 @@
 3d-camera
 =========
-An easy-to-use 3D camera for interactive graphical applications.
+An easy-to-use 3D camera for real-time interactive graphical applications.
 
 # Example
 
@@ -27,17 +27,21 @@ npm i 3d-camera
 Updates to the camera state are synchronized at calls to `tick()`.  This is necessary to ensure that camera state is smoothly interpolated between successive updates.  
 
 #### `camera.tick()`
+**This must be called at the start of each frame**.  It applies any pending updates to the camera and performs interpolation between previous camera motions.
+
+**Returns** `true` if the state of the camera changed since the last call to `tick()`, `false` if the camera is at a steady state.
 
 #### `camera.width`
+This is the width of the view port which is being rendered.
 
 #### `camera.height`
+This is the height of the view port which is being rendered.
 
 #### `camera.shape`
+As an alternative to directly accessing the width/height properties, it is also possible to access the shape of the camera viewport directly as a vector.  For some applications this may be more convenient.
 
 #### `camera.delay`
-
-#### `camera.dirty`
-
+The amount of delay to apply to the camera when interpolating between previous states.  This delay is applied in millisecond and is based on the wall clock time.  No delay means that camera updates are not smoothed.
 
 ## Coordinate transformations
 
