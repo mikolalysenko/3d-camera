@@ -20,7 +20,18 @@ npm i 3d-camera
 ## Constructor
 
 #### `var camera = require('3d-camera')([options])`
+Creates a new 3D camera object.  `options` is an optional JSON object which determines the initial values for the following properties:
 
+* `options.width`
+* `options.height`
+* `options.zNear`
+* `options.zFar`
+* `options.delay`
+* `options.fovX`
+* `options.fovY`
+* ... TODO
+
+**Returns** A new 3D camera object
 
 ## Basic interface
 
@@ -62,8 +73,24 @@ Coordinate transformation updates are synchronized on calls to `tick()`, so any 
 
 ### Compound transformations
 
+For convenience, the camera object provides a number of methods for getting transformations between the standard coordinate systems:
+
 ```javascript
+camera.data.toClip   // a 4x4 homogeneous transformation matrix mapping 
+                     // data coordinates to clip coordinates
+
+camera.world.origin  // the origin of the camera in world coordinates
+
+camera.clip.toWorld  // a transformation mapping clip coordinates to world
 ```
+
+The general pattern of these transformations is:
+
+```javascript
+camera[SOURCE_COORDINATE]['to' + TARGET_COORDINATE]
+```
+
+Possible coordinate systems include `data`, `world`, `camera` and `clip`.
 
 ### Projection matrix
 
