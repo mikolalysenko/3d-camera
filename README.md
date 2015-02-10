@@ -126,10 +126,10 @@ The interaction mode for the projection matrix.  Currently supported modes are:
 * `"matrix"` allows for direct matrix manipulation of the camera controller
 
 #### `projection.fovX`
-The horizontal field of view
+The horizontal field of view angle in radians
 
 #### `projection.fovY`
-The vertical field of view
+The vertical field of view angle in radians
 
 #### `projection.zNear`
 The distance of the near clip plane
@@ -208,7 +208,7 @@ var model = camera.model
 ```
 
 #### `model.matrix`
-The model matrix of the camera
+The model matrix of the camera.
 
 #### `model.mode`
 Interaction mode for the model matrix.  Currently supported modes are:
