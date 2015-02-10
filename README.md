@@ -79,8 +79,6 @@ For convenience, the camera object provides a number of methods for getting tran
 camera.data.toClip   // a 4x4 homogeneous transformation matrix mapping 
                      // data coordinates to clip coordinates
 
-camera.world.origin  // the origin of the camera in world coordinates
-
 camera.clip.toWorld  // a transformation mapping clip coordinates to world
 ```
 
@@ -92,7 +90,17 @@ camera[SOURCE_COORDINATE]['to' + TARGET_COORDINATE]
 
 Possible coordinate systems include `data`, `world`, `camera` and `clip`.
 
+The origin of the camera coordinates in any system can be found by accessing the `.origin` property of the camera, for example:
+
+```javascript
+camera.world.origin  // the origin of the camera in world coordinates
+```
+
+The state of these transformations is computed from the constituent `model`, `view` and `projection` matrices of the camera, which are controlled by the following interfaces.
+
 ### Projection matrix
+
+The projection matrix determines the relation between camera coordinates and clip coordinates.  It is 
 
 ```javascript
 var projection = camera.projection
